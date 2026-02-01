@@ -70,6 +70,7 @@ public class SignUpOrLogIn extends BaseTest {
 		Assert.assertEquals(page.checkingLoggedInAsName().trim(), dataMap.get("Logged In As"));
 		page.clickingOnTheDeleteButton();
 		Assert.assertEquals(page.checkingAccountDeletedText(), dataMap.get("Account Deleted"));
+		page.clickingOnContinueButton();
 	}
 
 	@DataProvider

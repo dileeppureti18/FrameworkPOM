@@ -112,6 +112,9 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 
 	@FindBy(xpath = "//b[text()='Account Deleted!']")
 	private WebElement accountDeletedText;
+	
+	@FindBy(xpath="//a[text()='Continue']")
+	private WebElement clickContinue;
 
 	public ClickingOnSingUpOrLogin(WebDriver driver) {
 		super(driver);
@@ -141,7 +144,8 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 	}
 
 	public void clickSubmit() {
-		elementUtils.isElementDisplayed(submit);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.elementToBeClickable(submit));
 		submit.click();
 		ChainTestListener.log("Clicking on Submit");
 	}
@@ -188,7 +192,8 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 	}
 
 	public void clickingOnReceiveSpecialOfferCheckBox() {
-		elementUtils.isElementDisplayed(checkOptin);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(checkOptin));
 		checkOptin.click();
 	}
 
@@ -247,7 +252,9 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 	}
 
 	public void clickingAlertClosing() {
-		driver.switchTo().frame("aswift_2");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("aswift_2"));
+//		driver.switchTo().frame("aswift_2");
 		elementUtils.isElementDisplayed(closeTheAlert);
 		closeTheAlert.click();
 	}
@@ -266,4 +273,7 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 		return accountDeletedText.getText();
 	}
 
+	public void clickingOnContinueButton() {
+		clickContinue.click();
+	}
 }
