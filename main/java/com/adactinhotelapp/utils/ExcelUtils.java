@@ -20,7 +20,7 @@ public class ExcelUtils {
 		try {
 			fis1=new FileInputStream("src\\test\\resources\\testdata\\excels\\MasterTestData.xlsx");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -28,7 +28,7 @@ public class ExcelUtils {
 		try {
 			wb=new XSSFWorkbook(fis1);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

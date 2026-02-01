@@ -1,1 +1,32 @@
-/target/
+# =====================
+# Java / Maven
+# =====================
+target/
+*.class
+*.log
+
+# =====================
+# Eclipse / IDE files
+# =====================
+.classpath
+.project
+.settings/
+
+# =====================
+# TestNG / Selenium reports
+# =====================
+test-output/
+reports/
+allure-results/
+
+# =====================
+# OS-specific
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Misc
+# =====================
+*.tmp
+*.bak

@@ -1,14 +1,11 @@
 package com.adactinhotelapp.tests;
 
 import org.testng.annotations.Test;
+
 import org.testng.AssertJUnit;
 import java.util.HashMap;
 
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
 import com.adactinhotelapp.base.BaseTest;
 import com.adactinhotelapp.constants.AppConstants;
 import com.adactinhotelapp.pages.LoginPage;

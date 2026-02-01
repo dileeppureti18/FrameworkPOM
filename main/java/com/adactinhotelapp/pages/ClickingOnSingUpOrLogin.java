@@ -1,8 +1,14 @@
 package com.adactinhotelapp.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.adactinhotelapp.utils.ElementUtils;
 import com.aventstack.chaintest.plugins.ChainTestListener;
 
@@ -40,21 +46,72 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 
 	@FindBy(xpath = "//input[@id='password']")
 	private WebElement enterPassword;
-	
-	@FindBy(xpath="//select[@id='days']")
+
+	@FindBy(xpath = "//select[@id='days']")
 	private WebElement selectDate;
-	
-	@FindBy(xpath="//select[@id='months']")
+
+	@FindBy(xpath = "//select[@id='months']")
 	private WebElement selectMonth;
-	
-	@FindBy(xpath="//select[@id='years']")
+
+	@FindBy(xpath = "//select[@id='years']")
 	private WebElement selectYear;
-	
-	@FindBy(xpath="//input[@id='newsletter']")
+
+	@FindBy(xpath = "//input[@id='newsletter']")
 	private WebElement checkNewsLetter;
-	
-	@FindBy(xpath="//input[@id='optin']")
+
+	@FindBy(xpath = "//input[@id='optin']")
 	private WebElement checkOptin;
+
+	@FindBy(xpath = "//input[@name='first_name']")
+	private WebElement userFirstName;
+
+	@FindBy(xpath = "//input[@name='last_name']")
+	private WebElement userLastName;
+
+	@FindBy(xpath = "//input[@name='company']")
+	private WebElement companyName;
+
+	@FindBy(xpath = "//input[@name='address1']")
+	private WebElement userAddress1;
+
+	@FindBy(xpath = "//input[@name='address2']")
+	private WebElement userAddress2;
+
+	@FindBy(xpath = "//select[@name='country']")
+	private WebElement userCountry;
+
+	@FindBy(xpath = "//input[@name='state']")
+	private WebElement userState;
+
+	@FindBy(xpath = "//input[@name='city']")
+	private WebElement userCity;
+
+	@FindBy(xpath = "//input[@name='zipcode']")
+	private WebElement userZipcode;
+
+	@FindBy(xpath = "//input[@name='mobile_number']")
+	private WebElement userMobileNumber;
+
+	@FindBy(xpath = "//button[text()='Create Account']")
+	private WebElement submitButton;
+
+	@FindBy(xpath = "//b[text()='Account Created!']")
+	private WebElement accountCreatedText;
+
+	@FindBy(xpath = "//a[text()='Continue']")
+	private WebElement continueButton;
+
+	@FindBy(xpath = "//div[@id='dismiss-button']")
+	private WebElement closeTheAlert;
+
+	@FindBy(xpath = "//a[b[normalize-space()='John Doe']]")
+	private WebElement loggedInAsName;
+
+	@FindBy(xpath = "//a[@href='/delete_account']")
+	private WebElement clickDeleteAccount;
+
+	@FindBy(xpath = "//b[text()='Account Deleted!']")
+	private WebElement accountDeletedText;
 
 	public ClickingOnSingUpOrLogin(WebDriver driver) {
 		super(driver);
@@ -84,6 +141,7 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 	}
 
 	public void clickSubmit() {
+		elementUtils.isElementDisplayed(submit);
 		submit.click();
 		ChainTestListener.log("Clicking on Submit");
 	}
@@ -113,28 +171,99 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 	public void enterPassword(String password) {
 		enterPassword.sendKeys(password);
 	}
-	
-	public WebElement selectTheDate() {
-		return selectDate;
-		
+
+	public void enterDateOfBirth(String date, String month, String year) {
+		// We can also write in this way or the below
+		Select selectingDate = new Select(selectDate);
+		selectingDate.selectByValue(date);
+
+		// Or can write like this as well
+		new Select(selectMonth).selectByValue(month);
+		new Select(selectYear).selectByValue(year);
+
 	}
-	
-	public WebElement selectTheMonth() {
-		return selectMonth;
-		
-	}
-	
-	public WebElement selectTheYear() {
-		return selectYear;
-		
-	}
-	
+
 	public void clickingOnNewsLetterCheckBox() {
 		checkNewsLetter.click();
 	}
-	
+
 	public void clickingOnReceiveSpecialOfferCheckBox() {
+		elementUtils.isElementDisplayed(checkOptin);
 		checkOptin.click();
+	}
+
+	public void firstName(String firstName) {
+		userFirstName.sendKeys(firstName);
+	}
+
+	public void lastName(String lastName) {
+		userLastName.sendKeys(lastName);
+	}
+
+	public void enterCompany(String company) {
+		companyName.sendKeys(company);
+	}
+
+	public void enterAddress1(String address1) {
+		userAddress1.sendKeys(address1);
+	}
+
+	public void enterAddress2(String address2) {
+		userAddress2.sendKeys(address2);
+	}
+
+	public void selectCountry(String country) {
+		new Select(userCountry).selectByValue(country);
+	}
+
+	public void enterState(String state) {
+		userState.sendKeys(state);
+	}
+
+	public void enterCity(String city) {
+		userCity.sendKeys(city);
+	}
+
+	public void enterZipCode(String zipCode) {
+		userZipcode.sendKeys(zipCode);
+	}
+
+	public void enterMobileNumber(String mobileNumber) {
+		userMobileNumber.sendKeys(mobileNumber);
+	}
+
+	public void clickSubmitButton() {
+		// Here it is in the form so we can also user submit() method
+		submitButton.click();
+	}
+
+	public String checkingAccountCreatedText() {
+		return accountCreatedText.getText();
+	}
+
+	public void clickContinueButton() {
+		elementUtils.isElementDisplayed(continueButton);
+		continueButton.click();
+	}
+
+	public void clickingAlertClosing() {
+		driver.switchTo().frame("aswift_2");
+		elementUtils.isElementDisplayed(closeTheAlert);
+		closeTheAlert.click();
+	}
+
+	public String checkingLoggedInAsName() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOf(loggedInAsName));
+		return loggedInAsName.getText();
+	}
+
+	public void clickingOnTheDeleteButton() {
+		clickDeleteAccount.click();
+	}
+
+	public String checkingAccountDeletedText() {
+		return accountDeletedText.getText();
 	}
 
 }

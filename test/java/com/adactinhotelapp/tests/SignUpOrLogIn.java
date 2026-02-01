@@ -2,7 +2,6 @@ package com.adactinhotelapp.tests;
 
 import java.util.HashMap;
 
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,8 +11,13 @@ import com.adactinhotelapp.constants.AppConstants;
 import com.adactinhotelapp.pages.ClickingOnSingUpOrLogin;
 import com.adactinhotelapp.utils.ExcelUtils;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+
 public class SignUpOrLogIn extends BaseTest {
 
+	@Description("This is for signing up for a new user registratio")
+	@Epic("AE-1 SignUp")
 	@Test(dataProvider = "getData")
 	public void loginOrSignUp(HashMap<String, String> dataMap) {
 
@@ -43,13 +47,29 @@ public class SignUpOrLogIn extends BaseTest {
 
 		page.enterPassword(dataMap.get("Password"));
 
-		new Select(page.selectTheDate()).selectByValue("18");
-		new Select(page.selectTheMonth()).selectByVisibleText("November");
-		new Select(page.selectTheYear()).selectByValue("1997");
+		page.enterDateOfBirth(dataMap.get("Date"), dataMap.get("Month"), dataMap.get("Year"));
 
 		page.clickingOnNewsLetterCheckBox();
 		page.clickingOnReceiveSpecialOfferCheckBox();
 
+		page.firstName(dataMap.get("First name"));
+		page.lastName(dataMap.get("Last name"));
+		page.enterCompany(dataMap.get("Company"));
+		page.enterAddress1(dataMap.get("Address 1"));
+		page.enterAddress2(dataMap.get("Address 2"));
+		page.selectCountry(dataMap.get("Country"));
+		page.enterState(dataMap.get("State"));
+		page.enterCity(dataMap.get("City"));
+		page.enterZipCode(dataMap.get("Zipcode"));
+		page.enterMobileNumber(dataMap.get("Mobile Number"));
+		page.clickSubmitButton();
+
+		Assert.assertEquals(page.checkingAccountCreatedText(), dataMap.get("Account Created"));
+		page.clickContinueButton();
+		page.clickingAlertClosing();
+		Assert.assertEquals(page.checkingLoggedInAsName().trim(), dataMap.get("Logged In As"));
+		page.clickingOnTheDeleteButton();
+		Assert.assertEquals(page.checkingAccountDeletedText(), dataMap.get("Account Deleted"));
 	}
 
 	@DataProvider
