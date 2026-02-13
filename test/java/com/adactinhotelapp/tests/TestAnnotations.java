@@ -2,7 +2,7 @@ package com.adactinhotelapp.tests;
 
 import org.testng.annotations.Test;
 
-public class Register extends Base{
+public class TestAnnotations extends Base{
 	
 
 	@Test

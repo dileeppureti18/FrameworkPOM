@@ -12,10 +12,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.adactinhotelapp.utils.ElementUtils;
 import com.aventstack.chaintest.plugins.ChainTestListener;
 
-public class ClickingOnSingUpOrLogin extends BasePage {
+public class UserRegistrationPage extends BasePage {
 
 	private WebDriver driver;
 	private ElementUtils elementUtils;
+
+	public UserRegistrationPage(WebDriver driver) {
+		super(driver);
+		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
+
+	}
 
 	@FindBy(xpath = "//a[text()=' Signup / Login']")
 	private WebElement signUpOrLogin;
@@ -112,16 +119,9 @@ public class ClickingOnSingUpOrLogin extends BasePage {
 
 	@FindBy(xpath = "//b[text()='Account Deleted!']")
 	private WebElement accountDeletedText;
-	
-	@FindBy(xpath="//a[text()='Continue']")
+
+	@FindBy(xpath = "//a[text()='Continue']")
 	private WebElement clickContinue;
-
-	public ClickingOnSingUpOrLogin(WebDriver driver) {
-		super(driver);
-		this.driver = driver;
-		elementUtils = new ElementUtils(driver);
-
-	}
 
 	public void signUpOrLogin() {
 		signUpOrLogin.click();

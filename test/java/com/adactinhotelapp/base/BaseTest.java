@@ -1,7 +1,5 @@
 package com.adactinhotelapp.base;
 
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -17,8 +15,7 @@ import com.aventstack.chaintest.plugins.ChainTestListener;
 public class BaseTest {
 
 	protected WebDriver driver;
-	DriverFactory diverFactory;
-	Properties prop;
+	DriverFactory driverFactory;
 
 	@BeforeTest
 	public void setUp() {
@@ -30,8 +27,8 @@ public class BaseTest {
 
 	@BeforeMethod
 	public void appLaunch() {
-		diverFactory = new DriverFactory();
-		driver = diverFactory.initDriver(DriverFactory.configProp);
+		driverFactory = new DriverFactory();
+		driver = driverFactory.initDriver(DriverFactory.configProp);
 	}
 
 	@AfterMethod
@@ -43,7 +40,7 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 		if (!result.isSuccess()) {
-			ChainTestListener.embed(diverFactory.getScreenshotFile(), "image/png");
+			ChainTestListener.embed(driverFactory.getScreenshotFile(), "image/png");
 		}
 		driver.quit();
 

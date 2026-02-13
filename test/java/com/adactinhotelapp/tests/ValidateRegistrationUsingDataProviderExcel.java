@@ -30,7 +30,7 @@ public class ValidateRegistrationUsingDataProviderExcel {
 	@Test(dataProvider="getTestData")
 	public void validateRegistrationTest1(HashMap<String,String> dataMap)
 	{
-		driver.findElement(By.xpath("//a[text()='New User Register Here']")).click();
+		driver.findElement(By.xpath("//a[text()='New User TestAnnotations Here']")).click();
 		Assert.assertEquals(driver.getTitle(), dataMap.get("Expected Title "));
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys(dataMap.get("Username"));
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(dataMap.get("Password"));

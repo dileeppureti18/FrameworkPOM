@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import com.adactinhotelapp.base.BaseTest;
 import com.adactinhotelapp.constants.AppConstants;
-import com.adactinhotelapp.pages.ClickingOnSingUpOrLogin;
+import com.adactinhotelapp.pages.UserRegistrationPage;
 import com.adactinhotelapp.utils.ExcelUtils;
 
 import io.qameta.allure.Description;
@@ -21,11 +21,11 @@ public class SignUpOrLogIn extends BaseTest {
 	@Test(dataProvider = "getData")
 	public void loginOrSignUp(HashMap<String, String> dataMap) {
 
-		ClickingOnSingUpOrLogin page = new ClickingOnSingUpOrLogin(driver);
+		UserRegistrationPage page = new UserRegistrationPage(driver);
 		Assert.assertEquals(page.getTitle(), AppConstants.E_Commerce_Home_Page);
 
 		page.signUpOrLogin();
-		Assert.assertEquals(page.getTitle(), AppConstants.LOGIN_PAGE_TITLE);
+		Assert.assertEquals(page.getTitle(), AppConstants.HOME_PAGE);
 
 		Assert.assertEquals(page.isNewUserSingUpDisplayed(), "New User Signup!");
 
