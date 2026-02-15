@@ -12,10 +12,12 @@ import com.adactinhotelapp.pages.LogoutPage;
 import com.adactinhotelapp.utils.ExcelUtils;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 
 public class LogOutTest extends BaseTest {
 
 	@Description("Testing the LogOut Functionality")
+	@Epic("TC04")
 	@Test(dataProvider = "getTestData")
 	public void logOutTest(HashMap<String, String> dataMap) {
 		LogoutPage logOut = new LogoutPage(driver);

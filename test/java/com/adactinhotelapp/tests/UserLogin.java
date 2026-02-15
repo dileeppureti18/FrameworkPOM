@@ -12,10 +12,12 @@ import com.adactinhotelapp.pages.ValidLoginPage;
 import com.adactinhotelapp.utils.ExcelUtils;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 
 public class UserLogin extends BaseTest {
 
 	@Description("Validating User login")
+	@Epic("TC02")
 	@Test(dataProvider = "getTestData")
 	public void userLoginTest(HashMap<String, String> dataMap) {
 		ValidLoginPage loginPage = new ValidLoginPage(driver);

@@ -12,10 +12,12 @@ import com.adactinhotelapp.pages.ExistingEmailRegisterValidationPage;
 import com.adactinhotelapp.utils.ExcelUtils;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 
 public class ExistingEmailRegisterTest extends BaseTest {
 	
 	@Description("TestAnnotations User with existing email")
+	@Epic("TC05")
 	@Test(dataProvider = "getTestData")
 	public void registrationTest(HashMap<String, String> dataMap) {
 		ExistingEmailRegisterValidationPage regPage = new ExistingEmailRegisterValidationPage(driver);

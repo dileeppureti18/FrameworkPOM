@@ -95,4 +95,13 @@ public class ElementUtils {
 		}
 	}
 
+	/**
+	 * Waits for a frame to be visible and switch into it.
+	 */
+	public void clickingAlertClosing(WebElement frameName, int timeOut) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameName));
+
+	}
+
 }

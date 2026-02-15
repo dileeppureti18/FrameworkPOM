@@ -17,7 +17,7 @@ import io.qameta.allure.Epic;
 public class SignUpOrLogIn extends BaseTest {
 
 	@Description("This is for signing up for a new user registratio")
-	@Epic("AE-1 SignUp")
+	@Epic("TC01")
 	@Test(dataProvider = "getData")
 	public void loginOrSignUp(HashMap<String, String> dataMap) {
 

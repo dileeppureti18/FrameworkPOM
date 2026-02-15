@@ -12,10 +12,12 @@ import com.adactinhotelapp.pages.InvalidLoginPage;
 import com.adactinhotelapp.utils.ExcelUtils;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 
 public class InvalidLoginTest extends BaseTest {
 
 	@Description("Testing with the invalid credentials to login")
+	@Epic("TC03")
 	@Test(dataProvider = "getTestData")
 	public void invalidLogin(HashMap<String, String> dataMap) {
 		InvalidLoginPage invalidLogin = new InvalidLoginPage(driver);
