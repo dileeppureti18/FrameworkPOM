@@ -1,23 +1,15 @@
 package com.adactinhotelapp.pages;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.adactinhotelapp.utils.ElementUtils;
-
-import io.opentelemetry.sdk.autoconfigure.spi.ConfigProperties;
-
 public class LogoutPage extends BasePage {
-
-	private WebDriver driver;
-	private ConfigProperties properties;
-	private ElementUtils elementUtils;
 
 	public LogoutPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		elementUtils = new ElementUtils(driver);
+
 	}
 
 	@FindBy(xpath = "//a[text()=' Signup / Login']")

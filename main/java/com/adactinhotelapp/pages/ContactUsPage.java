@@ -18,7 +18,6 @@ public class ContactUsPage extends BasePage {
 
 	public ContactUsPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
 		elementUtils = new ElementUtils(driver);
 	}
 

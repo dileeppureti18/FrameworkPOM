@@ -18,7 +18,6 @@ public class AllProductsPage extends BasePage {
 
 	public AllProductsPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
 		elementUtils = new ElementUtils(driver);
 	}
 

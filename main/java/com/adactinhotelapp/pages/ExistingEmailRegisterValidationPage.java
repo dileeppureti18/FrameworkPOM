@@ -1,20 +1,17 @@
 package com.adactinhotelapp.pages;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import com.adactinhotelapp.utils.ElementUtils;
 import com.aventstack.chaintest.plugins.ChainTestListener;
 
 public class ExistingEmailRegisterValidationPage extends BasePage {
 
-	private WebDriver driver;
-	private ElementUtils elementUtils;
 
 	public ExistingEmailRegisterValidationPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		elementUtils = new ElementUtils(driver);
+		
 	}
 
 	@FindBy(xpath = "//a[text()=' Signup / Login']")

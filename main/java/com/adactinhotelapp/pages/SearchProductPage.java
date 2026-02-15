@@ -1,24 +1,24 @@
 package com.adactinhotelapp.pages;
 
-import java.time.Duration;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.adactinhotelapp.utils.ElementUtils;
 
 public class SearchProductPage extends BasePage {
 
 	private ElementUtils elementUtils;
+	private static final Logger logger = LogManager.getLogger(SearchProductPage.class);
 
 	public SearchProductPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		elementUtils = new ElementUtils(driver);
+		logger.info("Initializing SearchProductPage"); // Log initialization
+		this.elementUtils = new ElementUtils(driver);
+		logger.debug("SearchProductPage initialized successfully");
 	}
 
 	@FindBy(xpath = "//a[contains(text(),'Products')]")
@@ -43,7 +43,9 @@ public class SearchProductPage extends BasePage {
 	private List<WebElement> listOfSearchedProducts;
 
 	public void clickOnProducts() {
-		productsTab.click();
+		logger.info("Attempting to click on Products tab");
+		elementUtils.clickWhenReady(productsTab, 30);
+		logger.info("Successfully clicked on Products tab");
 	}
 
 	public void closeTheAlert() {

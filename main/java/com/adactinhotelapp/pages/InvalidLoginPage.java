@@ -9,12 +9,12 @@ import com.adactinhotelapp.utils.ElementUtils;
 
 public class InvalidLoginPage extends BasePage {
 
-	private WebDriver driver;
+	
 	private ElementUtils elementUtils;
 
 	public InvalidLoginPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		
 		elementUtils = new ElementUtils(driver);
 	}
 

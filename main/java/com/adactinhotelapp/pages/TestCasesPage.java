@@ -16,7 +16,7 @@ public class TestCasesPage extends BasePage {
 
 	public TestCasesPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		
 		elementUtils = new ElementUtils(driver);
 
 	}

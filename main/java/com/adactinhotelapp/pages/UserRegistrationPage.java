@@ -19,7 +19,7 @@ public class UserRegistrationPage extends BasePage {
 
 	public UserRegistrationPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		
 		elementUtils = new ElementUtils(driver);
 
 	}

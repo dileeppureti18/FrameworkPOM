@@ -10,11 +10,11 @@ public class ValidLoginPage extends BasePage {
 
 	public ValidLoginPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		
 		elementUtils = new ElementUtils(driver);
 	}
 
-	private WebDriver driver;
+	
 	private ElementUtils elementUtils;
 
 	@FindBy(xpath = "//a[text()=' Signup / Login']")
