@@ -71,14 +71,6 @@ public class AllProductsPage extends BasePage {
 
 	}
 
-	public void closeTheAlert2() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ad_iframe"));
-		elementUtils.isElementDisplayed(closeTheAlert);
-		closeTheAlert.click();
-
-	}
-
 	public String getAllProductsText() {
 		elementUtils.waitForElementVisible(allProductsText, 30);
 		return allProductsText.getText();

@@ -19,5 +19,6 @@ public interface AppConstants {
 	String ALL_PRODUCTS_PAGE = "Automation Exercise - All Products";
 	String PRODUCT_DETAILS_PAGE = "Automation Exercise - Product Details";
 	String ALL_Products = "ALL PRODUCTS";
+	String SEARCHED_PRODUCTS="SEARCHED PRODUCTS";
 
 }
