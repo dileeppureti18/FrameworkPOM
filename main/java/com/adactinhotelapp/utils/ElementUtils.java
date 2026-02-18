@@ -3,6 +3,7 @@ package com.adactinhotelapp.utils;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,8 +37,8 @@ public class ElementUtils {
 	/**
 	 * Waits for an element to be visible and then clicks it.
 	 */
-	public void clickWhenReady(WebElement element, int timeout) {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+	public void clickWhenReady(WebElement element) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
 		wait.until(ExpectedConditions.elementToBeClickable(element)).click();
 	}
 
@@ -104,4 +105,10 @@ public class ElementUtils {
 
 	}
 
+	/**
+	 * Scrolling to the bottom of the page using JavaScriptExecutor.
+	 */
+	public void scrollToTheBottom() {
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+	}
 }

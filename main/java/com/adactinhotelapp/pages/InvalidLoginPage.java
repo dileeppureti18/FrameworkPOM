@@ -47,7 +47,7 @@ public class InvalidLoginPage extends BasePage {
 	public void login(String email, String password) {
 		emailField.sendKeys(email);
 		passwordFiled.sendKeys(password);
-		elementUtils.clickWhenReady(loginButton, 30);
+		elementUtils.clickWhenReady(loginButton);
 	}
 
 	public String errorValidaitonMessage() {

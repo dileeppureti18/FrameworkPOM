@@ -20,5 +20,7 @@ public interface AppConstants {
 	String PRODUCT_DETAILS_PAGE = "Automation Exercise - Product Details";
 	String ALL_Products = "ALL PRODUCTS";
 	String SEARCHED_PRODUCTS="SEARCHED PRODUCTS";
+	String SUBSCRIPTION_TEXT="SUBSCRIPTION";
+	String SUBSCRIPTION_SUCCESS_MESSAGE = "You have been successfully subscribed!";
 
 }

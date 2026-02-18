@@ -44,7 +44,7 @@ public class SearchProductPage extends BasePage {
 
 	public void clickOnProducts() {
 		logger.info("Attempting to click on Products tab");
-		elementUtils.clickWhenReady(productsTab, 30);
+		elementUtils.clickWhenReady(productsTab);
 		logger.info("Successfully clicked on Products tab");
 	}
 
@@ -64,7 +64,7 @@ public class SearchProductPage extends BasePage {
 
 	public void sendSearchProductName(String productName) {
 		searchProduct.sendKeys(productName);
-		elementUtils.clickWhenReady(searchButton, 30);
+		elementUtils.clickWhenReady(searchButton);
 		searchButton.click();
 	}
 
