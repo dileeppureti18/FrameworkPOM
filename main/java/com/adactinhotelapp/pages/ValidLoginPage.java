@@ -10,11 +10,10 @@ public class ValidLoginPage extends BasePage {
 
 	public ValidLoginPage(WebDriver driver) {
 		super(driver);
-		
+
 		elementUtils = new ElementUtils(driver);
 	}
 
-	
 	private ElementUtils elementUtils;
 
 	@FindBy(xpath = "//a[text()=' Signup / Login']")
@@ -53,14 +52,14 @@ public class ValidLoginPage extends BasePage {
 	}
 
 	public void login(String email, String password) {
-        emailField.sendKeys(email);
-        passwordField.sendKeys(password);
-        loginButton.click();
-    }
+		emailField.sendKeys(email);
+		passwordField.sendKeys(password);
+		loginButton.click();
+	}
 
 	public void closeTheAlert() {
 
-	elementUtils.waitsForElementVisible(closeTheAlert, 0);
+		elementUtils.waitsForElementVisible(closeTheAlert);
 		closeTheAlert.click();
 
 	}

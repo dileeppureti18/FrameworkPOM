@@ -14,7 +14,7 @@ import com.adactinhotelapp.utils.ExcelUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 
-public class SignUpOrLogIn extends BaseTest {
+public class UserRegistrationTest extends BaseTest {
 
 	@Description("This is for signing up for a new user registratio")
 	@Epic("TC01")

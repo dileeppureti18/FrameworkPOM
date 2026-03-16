@@ -19,8 +19,11 @@ public interface AppConstants {
 	String ALL_PRODUCTS_PAGE = "Automation Exercise - All Products";
 	String PRODUCT_DETAILS_PAGE = "Automation Exercise - Product Details";
 	String ALL_Products = "ALL PRODUCTS";
-	String SEARCHED_PRODUCTS="SEARCHED PRODUCTS";
-	String SUBSCRIPTION_TEXT="SUBSCRIPTION";
+	String SEARCHED_PRODUCTS = "SEARCHED PRODUCTS";
+	String SUBSCRIPTION_TEXT = "SUBSCRIPTION";
 	String SUBSCRIPTION_SUCCESS_MESSAGE = "You have been successfully subscribed!";
+	String VIEW_CART = "Automation Exercise - Checkout";
+	String ORDER_PLACED = "Congratulations! Your order has been confirmed!";
+	String ACCOUNT_CREATED = "ACCOUNT CREATED!";
 
 }

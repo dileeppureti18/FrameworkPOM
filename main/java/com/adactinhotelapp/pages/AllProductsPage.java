@@ -71,7 +71,7 @@ public class AllProductsPage extends BasePage {
 	}
 
 	public String getAllProductsText() {
-		elementUtils.waitForElementVisible(allProductsText, 30);
+		elementUtils.waitForElementVisible(allProductsText);
 		return allProductsText.getText();
 	}
 

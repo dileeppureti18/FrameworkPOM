@@ -17,7 +17,7 @@ import io.qameta.allure.Epic;
 public class SubscriptionInCartTest extends BaseTest {
 
 	@Description("Testing Subscription use case in Cart Page")
-	@Epic("TC106")
+	@Epic("TC11")
 	@Test(dataProvider = "getTestData")
 	public void subscriptionInCard(HashMap<String, String> dataMap) {
 

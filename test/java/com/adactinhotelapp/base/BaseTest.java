@@ -42,7 +42,7 @@ public class BaseTest {
 		if (!result.isSuccess()) {
 			ChainTestListener.embed(driverFactory.getScreenshotFile(), "image/png");
 		}
-		driver.quit();
+//		driver.quit();
 
 		ChainTestListener.log("Browser closed ...");
 	}

@@ -1,6 +1,9 @@
 package com.adactinhotelapp.factory;
 
 import java.io.File;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,9 +32,19 @@ public class DriverFactory {
 		
 		switch (browserName.toLowerCase()) {
 		case "chrome" :
-			driver=new ChromeDriver();
-			ChainTestListener.log("Chrome borwser has been started");
-			break;
+			ChromeOptions options = new ChromeOptions();
+
+		    Map<String, Object> prefs = new HashMap<>();
+		    prefs.put("autofill.profile_enabled", false);
+		    prefs.put("credentials_enable_service", false);
+		    prefs.put("profile.password_manager_enabled", false);
+
+		    options.setExperimentalOption("prefs", prefs);
+
+		    driver = new ChromeDriver(options);
+
+		    ChainTestListener.log("Chrome browser has been started");
+		    break;
 
 		case "firefox" :
 			driver=new FirefoxDriver();
