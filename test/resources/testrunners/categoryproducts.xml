@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.adactinhotelapp.tests.ExistingEmailRegisterTest"/>
+      <class name="com.adactinhotelapp.tests.CategoryProductsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

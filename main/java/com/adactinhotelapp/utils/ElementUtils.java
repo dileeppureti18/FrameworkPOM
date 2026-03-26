@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ElementUtils {
 
 	private WebDriver driver;
-	private final int DEFAULT_TIMEOUT = 10;
+	private final int DEFAULT_TIMEOUT = 30;
 	private WebDriverWait wait;
 
 	public ElementUtils(WebDriver driver) {
